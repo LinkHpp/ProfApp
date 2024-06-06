@@ -20,9 +20,9 @@
    <children>
       <MenuBar layoutY="-6.0" prefHeight="40.0" prefWidth="862.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <menus>
-            <Menu mnemonicParsing="false" text="File">
+            <Menu mnemonicParsing="false" text="Tutoria">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Go to Tutoria" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Edit">

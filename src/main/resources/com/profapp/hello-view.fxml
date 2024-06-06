@@ -21,14 +21,14 @@
    <children>
       <MenuBar layoutY="-6.0" prefHeight="40.0" prefWidth="862.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <menus>
-            <Menu mnemonicParsing="false" text="File">
+            <Menu mnemonicParsing="false" text="Tutoria">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="itemTutoria" mnemonicParsing="false" onAction="#onTutoriaButtonClick" text="Go to Tutoria" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
+            <Menu mnemonicParsing="false" text="Asistencia">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem fx:id="itemAsistencia" mnemonicParsing="false" onAction="#onAsistenciaButtonClick" text="Go to Asistencia" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
@@ -84,7 +84,7 @@
                         </GridPane>
                         <HBox layoutX="185.0" layoutY="424.0" spacing="5.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="9.0">
                            <children>
-                              <Button mnemonicParsing="false" text="New..." />
+                              <Button mnemonicParsing="false" onAction="#onAddButtonClick" text="New..." />
                               <Button mnemonicParsing="false" onAction="#onEditButtonClick" prefWidth="55.0" text="Edit..." />
                               <Button mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Delete" />
                            </children>

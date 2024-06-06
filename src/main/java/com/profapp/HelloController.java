@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -33,7 +34,6 @@ public class HelloController {
     @FXML
     private TableView<Alumno> alumnoTable;
 
-
     @FXML
     private TableColumn<Alumno, String> firstNameColumn;
     @FXML
@@ -41,18 +41,23 @@ public class HelloController {
 
     Alumno currentAlumno;
 
-    ObservableList<Alumno> data;
+    private ObservableList<Alumno> data= FXCollections.observableArrayList(
+            new Alumno("Link", "Link"),
+            new Alumno("Ganondorf", "Dragmire"),
+            new Alumno("Zelda", "Hyrule"));
+
+    public ObservableList<Alumno> getData() {
+        return data;
+    }
+
+    public void setData(ObservableList<Alumno> data) {
+        this.data = data;
+    }
 
     @FXML
     private void initialize(){
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-
-        data = FXCollections.observableArrayList(
-                new Alumno("Link", "Link"),
-                new Alumno("Ganondorf", "Dragmire"),
-                new Alumno("Zelda", "Hyrule")
-        );
 
         alumnoTable.setItems(data);
 
@@ -70,7 +75,8 @@ public class HelloController {
 
     @FXML
     protected void AddAlumno(Alumno newAlumno) {
-        alumnoTable.getItems().add(newAlumno);
+        data.add(newAlumno);
+        System.out.println(newAlumno);
     }
 
     @FXML
@@ -89,6 +95,42 @@ public class HelloController {
         controller.LoadCurrent(currentAlumno);
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    protected void onAddButtonClick(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Create_Edit_Alumnos.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    protected void onTutoriaButtonClick(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Tutoria.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage(); // Create a new stage for the new scene
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    protected void onAsistenciaButtonClick(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Asistencia.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage(); // Create a new stage for the new scene
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

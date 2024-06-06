@@ -1,6 +1,7 @@
 package com.profapp;
 
 import com.profapp.model.Alumno;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CreateEditController {
 
@@ -22,7 +24,7 @@ public class CreateEditController {
     @FXML
     Button addButton;
 
-    Alumno currentAlumno;
+    private ArrayList<Alumno> arrayList = new ArrayList<>();
 
     private Stage stage;
     private Scene scene;
@@ -33,6 +35,10 @@ public class CreateEditController {
         String lastName = lastNameTextField.getText();
 
         Alumno newAlumno = new Alumno(name, lastName);
+
+        arrayList.add(newAlumno);
+
+        System.out.println(newAlumno);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         root = loader.load();
