@@ -13,6 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Objects;
+
 public class HelloController {
     @FXML
     private Label firstNameLabel;
@@ -24,6 +26,8 @@ public class HelloController {
 
     @FXML
     private TableView<Alumno> alumnoTable;
+
+
     @FXML
     private TableColumn<Alumno, String> firstNameColumn;
     @FXML
@@ -53,20 +57,18 @@ public class HelloController {
                 currentAlumno = alumnoTable.getSelectionModel().getSelectedItem();
                 firstNameLabel.setText(currentAlumno.getName());
                 lastNameLabel.setText(currentAlumno.getLastName());
-                imageView.setImage(new Image(getClass().getResourceAsStream(currentAlumno.getImagePath())));
+                imageView.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(currentAlumno.getImagePath()))));
             }
         });
     }
 
     @FXML
-    protected void onHelloButtonClick() {
-        System.out.println("TestingButton");
-        alumnoTable.getItems().add(new Alumno("Rhoam", "Bosphoramus Hyrule"));
+    protected void onHelloButtonClick(Alumno newAlumno) {
+        alumnoTable.getItems().add(newAlumno);
     }
 
     @FXML
-    protected void onDeleteButtonClick(){
+    protected void onDeleteButtonClick() {
         alumnoTable.getItems().remove(currentAlumno);
     }
-
 }
