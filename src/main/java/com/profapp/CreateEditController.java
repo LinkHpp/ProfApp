@@ -22,6 +22,8 @@ public class CreateEditController {
     @FXML
     Button addButton;
 
+    Alumno currentAlumno;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -37,12 +39,17 @@ public class CreateEditController {
 
         HelloController helloController = loader.getController();
 
-        helloController.onHelloButtonClick(newAlumno);
+        helloController.AddAlumno(newAlumno);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void LoadCurrent(Alumno alumno){
+        nameTextField.setText(alumno.getName());
+        lastNameTextField.setText(alumno.getLastName());
     }
 
 }
