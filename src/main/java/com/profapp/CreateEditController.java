@@ -1,7 +1,6 @@
 package com.profapp;
 
 import com.profapp.model.Alumno;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
