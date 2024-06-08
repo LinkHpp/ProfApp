@@ -8,8 +8,10 @@
 
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name="hibernate.connection.url">jdbc:sqlite:C:/Users/LinkHpp/AppData/Roaming/ProfApp/test.db</property>
-        <property name="dialect">org.hibernate.community.dialect.SQLiteDialect</property>        <!-- JDBC connection pool settings -->
+        <property name="hibernate.connection.url">jdbc:sqlite:/home/coopa/.config/profapp/profapp.db</property>
+        <property name="dialect">org.hibernate.community.dialect.SQLiteDialect</property>
+        
+        <!-- JDBC connection pool settings -->
         <property name="hibernate.connection.pool_size">1</property>
 
         <!-- Other settings -->

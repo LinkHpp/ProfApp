@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -23,7 +24,7 @@ public class DatabaseDAO {
         String os = getOperatingSystem();
         String username = System.getProperty("user.name");
         String url = "";
-        String file_url ="C:/Users/" + username + "/AppData/Roaming/ProfApp/";
+        String file_url;
 
         System.out.println(os);
 
@@ -41,9 +42,12 @@ public class DatabaseDAO {
                 }
                 logger.info("URL: {}", file_url);
             }
-            url = "jdbc:sqlite:"+ file_url + fileName;
+            url = file_url + fileName;
+
         } else if (Objects.equals(os, "Linux")) {
-            file_url = "$HOME/.config/profapp";
+            String homeDir = System.getenv("HOME");
+            file_url = homeDir + "/.config/profapp";
+            logger.debug(file_url);
             if(Files.exists(Path.of(file_url))){
                 logger.info("Existe carpeta");
             }else{
@@ -56,8 +60,7 @@ public class DatabaseDAO {
                 }
                 logger.info("URL: {}", file_url);
             }
-            System.out.println("User: " + username.toLowerCase());
-            url = "jdbc:sqlite:$HOME/.config/" + fileName;
+            initConfig(file_url);
         }
 
         try {
@@ -76,5 +79,30 @@ public class DatabaseDAO {
 
     public static String getOperatingSystem() {
         return System.getProperty("os.name");
+    }
+
+
+    public static void initConfig(String url){
+        String templatePath = "src/main/resources/hibernate-template.xml";
+        String templateContent = "";
+        try {
+            templateContent = new String(Files.readAllBytes(Paths.get(templatePath)));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        // Replace placeholder with actual database URL
+        String databaseUrl = "jdbc:sqlite:" + url;
+        String configFileContent = templateContent.replace("@USERNAME@", System.getProperty("user.name"));
+
+        // Write modified XML to a new file
+        String configFileOutputPath = "src/main/resources/hibernate.cfg.xml";
+        try {
+            Files.write(Paths.get(configFileOutputPath), configFileContent.getBytes());
+            System.out.println("Dynamic Hibernate configuration file generated successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

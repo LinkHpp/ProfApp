@@ -1,6 +1,5 @@
 package com.profapp.util;
 
-import com.profapp.HelloApplication;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
