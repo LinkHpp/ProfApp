@@ -8,7 +8,7 @@
 
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name="hibernate.connection.url">jdbc:sqlite:C:\Users\LinkHpp\AppData\Roaming\Profapp\profapp</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:/home/@USERNAME@/.config/profapp/profapp.db</property>
         <property name="dialect">org.hibernate.community.dialect.SQLiteDialect</property>
         
         <!-- JDBC connection pool settings -->
