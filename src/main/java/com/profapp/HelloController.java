@@ -1,6 +1,8 @@
 package com.profapp;
 
+import com.profapp.DAO.AlumnoDAO;
 import com.profapp.model.Alumno;
+import com.profapp.util.HibernateUtil;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,6 +29,8 @@ public class HelloController {
     private Label firstNameLabel;
     @FXML
     private Label lastNameLabel;
+    @FXML
+    private Label NIALabel;
 
     @FXML
     private ImageView imageView;
@@ -35,16 +39,15 @@ public class HelloController {
     private TableView<Alumno> alumnoTable;
 
     @FXML
+    private TableColumn<Alumno, Integer> NIAColumn;
+    @FXML
     private TableColumn<Alumno, String> firstNameColumn;
     @FXML
     private TableColumn<Alumno, String> lastNameColumn;
 
-    Alumno currentAlumno;
+    private ObservableList<Alumno> data;
 
-    private ObservableList<Alumno> data= FXCollections.observableArrayList(
-            new Alumno("Link", "Link"),
-            new Alumno("Ganondorf", "Dragmire"),
-            new Alumno("Zelda", "Hyrule"));
+    Alumno currentAlumno;
 
     public ObservableList<Alumno> getData() {
         return data;
@@ -56,6 +59,8 @@ public class HelloController {
 
     @FXML
     private void initialize(){
+        data = AlumnoDAO.getAllAlumnos();
+        NIAColumn.setCellValueFactory(cellData -> cellData.getValue().NIAProperty().asObject());
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
 
@@ -65,23 +70,59 @@ public class HelloController {
 
             @Override
             public void changed(ObservableValue<? extends Alumno> observable, Alumno oldValue, Alumno newValue) {
-                currentAlumno = alumnoTable.getSelectionModel().getSelectedItem();
-                firstNameLabel.setText(currentAlumno.getName());
-                lastNameLabel.setText(currentAlumno.getLastName());
-                imageView.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(currentAlumno.getImagePath()))));
+                // Directly use the newValue without referencing oldValue
+                currentAlumno = newValue; // Update the currentAlumno to the newly selected one
+
+                if (currentAlumno != null) { // Ensure the new selection is not null
+                    // Update UI elements based on the new selection
+                    NIALabel.setText(String.valueOf(currentAlumno.getNIA()));
+                    firstNameLabel.setText(currentAlumno.getName());
+                    lastNameLabel.setText(currentAlumno.getLastName());
+
+                    // Load and set the image if the path is not null
+                    if (currentAlumno.getImagePath() != null) {
+                        imageView.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(currentAlumno.getImagePath()))));
+                    } else {
+                        imageView.setImage(null); // Clear the image if there is no path
+                    }
+                } else {
+                    // Clear the UI elements if no selection
+                    firstNameLabel.setText("");
+                    lastNameLabel.setText("");
+                    imageView.setImage(null);
+                }
             }
         });
     }
 
     @FXML
-    protected void AddAlumno(Alumno newAlumno) {
-        data.add(newAlumno);
-        System.out.println(newAlumno);
+    protected void AddAlumno(Alumno alumno, boolean update) {
+        if (update) {
+            // Edit the existing Alumno
+            AlumnoDAO.editAlumno(alumno);
+            data.remove(alumno.getNIA()-1);
+            data.add(alumno);
+            alumnoTable.refresh();
+
+            /*// Update the TableView with the edited Alumno
+            int index = data.indexOf(alumno);
+            if (index != -1) {
+                data.set(index, alumno);
+                alumnoTable.refresh()*/
+        } else {
+            // Create a new Alumno
+            AlumnoDAO.createAlumno(alumno);
+
+            // Add the new Alumno to the TableView
+            data.add(alumno);
+        }
     }
 
     @FXML
     protected void onDeleteButtonClick() {
-        alumnoTable.getItems().remove(currentAlumno);
+        AlumnoDAO.deleteAlumno(currentAlumno);
+        data.remove(currentAlumno);
+        alumnoTable.refresh();
     }
 
     @FXML
@@ -92,7 +133,7 @@ public class HelloController {
 
         CreateEditController controller = loader.getController();
 
-        controller.LoadCurrent(currentAlumno);
+        controller.LoadCurrent(currentAlumno, true);
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

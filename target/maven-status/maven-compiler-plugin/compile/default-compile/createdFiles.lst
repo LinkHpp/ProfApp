@@ -1,4 +1,13 @@
-com\profapp\App.class
+com\profapp\HelloController$1.class
+com\profapp\HelloApplication.class
+com\profapp\Asistencia.class
+com\profapp\CreateEditController.class
+com\profapp\DAO\AlumnoDAO.class
+com\profapp\HelloController.class
 module-info.class
-com\profapp\SecondaryController.class
-com\profapp\PrimaryController.class
+com\profapp\util\HibernateUtil.class
+com\profapp\TutoriaController.class
+com\profapp\model\Tutoria.class
+com\profapp\DAO\DatabaseDAO.class
+com\profapp\Controller.class
+com\profapp\model\Alumno.class

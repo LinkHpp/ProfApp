@@ -21,7 +21,12 @@ public class CreateEditController {
     @FXML
     TextField lastNameTextField;
     @FXML
+    TextField NIATextField;
+    @FXML
     Button addButton;
+
+    boolean update;
+    Alumno alumnoCRUD;
 
     private ArrayList<Alumno> arrayList = new ArrayList<>();
 
@@ -30,31 +35,47 @@ public class CreateEditController {
     private Parent root;
 
     public void Add(ActionEvent event) throws IOException {
+        int NIA = Integer.parseInt(NIATextField.getText());
         String name = nameTextField.getText();
         String lastName = lastNameTextField.getText();
 
-        Alumno newAlumno = new Alumno(name, lastName);
+        if(update){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            root = loader.load();
 
-        arrayList.add(newAlumno);
+            HelloController helloController = loader.getController();
 
-        System.out.println(newAlumno);
+            Alumno newAlumno = new Alumno(NIA, name, lastName);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        root = loader.load();
+            helloController.AddAlumno(newAlumno, update);
 
-        HelloController helloController = loader.getController();
+        }else{
+            Alumno newAlumno = new Alumno(NIA, name, lastName);
 
-        helloController.AddAlumno(newAlumno);
+            arrayList.add(newAlumno);
 
+            System.out.println(newAlumno);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            root = loader.load();
+
+            HelloController helloController = loader.getController();
+
+            helloController.AddAlumno(newAlumno, update);
+
+        }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void LoadCurrent(Alumno alumno){
-        nameTextField.setText(alumno.getName());
-        lastNameTextField.setText(alumno.getLastName());
+    public void LoadCurrent(Alumno alumno, boolean is_update){
+        alumnoCRUD = alumno;
+        nameTextField.setText(alumnoCRUD.getName());
+        lastNameTextField.setText(alumnoCRUD.getLastName());
+        NIATextField.setText(String.valueOf(alumnoCRUD.getNIA()));
+        update = is_update;
     }
 
 }
