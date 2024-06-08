@@ -72,8 +72,9 @@ public class AlumnoDAO {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            Alumno alumnoDB = session.get(Alumno.class, alumno.getNIA());
+            Alumno alumnoDB = session.get(Alumno.class, alumno.getID());
 
+            alumnoDB.setNIA(alumno.getNIA());
             alumnoDB.setName(alumno.getName());
             alumnoDB.setLastName(alumno.getLastName());
 

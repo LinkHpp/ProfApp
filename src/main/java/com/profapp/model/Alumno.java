@@ -11,6 +11,10 @@ import javafx.beans.property.StringProperty;
 public class Alumno {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private int ID;
+
     @Column(name = "NIA")
     private int NIA; // Custom primary key field named 'NIA'
 
@@ -104,5 +108,9 @@ public class Alumno {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public int getID() {
+        return ID;
     }
 }

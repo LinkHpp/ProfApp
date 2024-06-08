@@ -100,15 +100,11 @@ public class HelloController {
         if (update) {
             // Edit the existing Alumno
             AlumnoDAO.editAlumno(alumno);
-            data.remove(alumno.getNIA()-1);
-            data.add(alumno);
+            data.clear();
+            alumnoTable.refresh();
+            data.addAll(AlumnoDAO.getAllAlumnos());
             alumnoTable.refresh();
 
-            /*// Update the TableView with the edited Alumno
-            int index = data.indexOf(alumno);
-            if (index != -1) {
-                data.set(index, alumno);
-                alumnoTable.refresh()*/
         } else {
             // Create a new Alumno
             AlumnoDAO.createAlumno(alumno);

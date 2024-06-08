@@ -45,9 +45,13 @@ public class CreateEditController {
 
             HelloController helloController = loader.getController();
 
-            Alumno newAlumno = new Alumno(NIA, name, lastName);
+            //Alumno newAlumno = new Alumno(alumnoCRUD.getID(), NIA, name, lastName);
 
-            helloController.AddAlumno(newAlumno, update);
+            alumnoCRUD.setNIA(NIA);
+            alumnoCRUD.setName(name);
+            alumnoCRUD.setLastName(lastName);
+
+            helloController.AddAlumno(alumnoCRUD, update);
 
         }else{
             Alumno newAlumno = new Alumno(NIA, name, lastName);

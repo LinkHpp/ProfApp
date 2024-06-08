@@ -44,6 +44,7 @@ public class DatabaseDAO {
             }
             url = file_url + fileName;
 
+            initConfig(file_url);
         } else if (Objects.equals(os, "Linux")) {
             String homeDir = System.getenv("HOME");
             file_url = homeDir + "/.config/profapp";
@@ -60,6 +61,7 @@ public class DatabaseDAO {
                 }
                 logger.info("URL: {}", file_url);
             }
+            initConfig(file_url);
         }
 
 
