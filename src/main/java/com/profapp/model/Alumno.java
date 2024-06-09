@@ -11,106 +11,253 @@ import javafx.beans.property.StringProperty;
 public class Alumno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID")
     private int ID;
 
     @Column(name = "NIA")
-    private int NIA; // Custom primary key field named 'NIA'
+    private int NIA;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
 
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
+    @Column(name = "apellido", nullable = false)
+    private String apellido;
 
-    @Column(name = "birthday")
-    private String birthday;
+    @Column(name = "fecha_nacimiento")
+    private String fechaNacimiento;
 
-    @Column(name = "image_path", nullable = false)
-    private String imagePath;
+    @Column(name = "localidad")
+    private String localidad;
+
+    @Column(name = "domicilio")
+    private String domicilio;
+
+    @Column(name = "quien_arreplega")
+    private String quienArreplega;
+
+    @Column(name = "foto", length = 125829120)
+    private byte[] foto;
+
+    // Información de contacto familiar
+    @Column(name = "nombre_familiar1")
+    private String nombreFamiliar1;
+
+    @Column(name = "telefono_familiar1")
+    private String telefonoFamiliar1;
+
+    @Column(name = "correo_familiar1")
+    private String correoFamiliar1;
+
+    @Column(name = "nombre_familiar2")
+    private String nombreFamiliar2;
+
+    @Column(name = "telefono_familiar2")
+    private String telefonoFamiliar2;
+
+    @Column(name = "correo_familiar2")
+    private String correoFamiliar2;
+
+    @Column(name = "numero_hermanos")
+    private int numeroHermanos;
+
+    @Column(name = "situacion_familiar")
+    private String situacionFamiliar;
+
+    @Column(name = "observaciones")
+    private String observaciones;
+
+    @Column(name = "enfermedades_alergias")
+    private String enfermedadesAlergias;
 
     // Default constructor required by Hibernate
     public Alumno() {
     }
 
-    // Parameterized constructor
-    public Alumno(String name, String lastName) {
-        this.name = name;
-        this.lastName = lastName;
-        this.imagePath = "Link.jpg"; // Default value
-    }
-
-    public Alumno(int NIA, String name, String lastName) {
+    public Alumno(int NIA, String nombre, String apellido, String fechaNacimiento, String localidad, String domicilio, String quienArreplega, byte[] foto, String nombreFamiliar1, String telefonoFamiliar1, String correoFamiliar1, String nombreFamiliar2, String telefonoFamiliar2, String correoFamiliar2, int numeroHermanos,String situacionFamiliar, String observaciones, String enfermedadesAlergias) {
         this.NIA = NIA;
-        this.name = name;
-        this.lastName = lastName;
-        this.imagePath = "Link.jpg"; // Default value
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.localidad = localidad;
+        this.domicilio = domicilio;
+        this.quienArreplega = quienArreplega;
+        this.foto = foto;
+        this.nombreFamiliar1 = nombreFamiliar1;
+        this.telefonoFamiliar1 = telefonoFamiliar1;
+        this.correoFamiliar1 = correoFamiliar1;
+        this.nombreFamiliar2 = nombreFamiliar2;
+        this.telefonoFamiliar2 = telefonoFamiliar2;
+        this.correoFamiliar2 = correoFamiliar2;
+        this.numeroHermanos = numeroHermanos;
+        this.situacionFamiliar = situacionFamiliar;
+        this.observaciones = observaciones;
+        this.enfermedadesAlergias = enfermedadesAlergias;
     }
 
-    // Getters and setters for JavaFX properties
+    public int getID() {
+        return ID;
+    }
 
-    public int getNIA() {
-        return NIA;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public void setNIA(int NIA) {
         this.NIA = NIA;
     }
+
+    public int getNIA(){
+        return NIA;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public String getQuienArreplega() {
+        return quienArreplega;
+    }
+
+    public void setQuienArreplega(String quienArreplega) {
+        this.quienArreplega = quienArreplega;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    public String getNombreFamiliar1() {
+        return nombreFamiliar1;
+    }
+
+    public void setNombreFamiliar1(String nombreFamiliar1) {
+        this.nombreFamiliar1 = nombreFamiliar1;
+    }
+
+    public String getTelefonoFamiliar1() {
+        return telefonoFamiliar1;
+    }
+
+    public void setTelefonoFamiliar1(String telefonoFamiliar1) {
+        this.telefonoFamiliar1 = telefonoFamiliar1;
+    }
+
+    public String getCorreoFamiliar1() {
+        return correoFamiliar1;
+    }
+
+    public void setCorreoFamiliar1(String correoFamiliar1) {
+        this.correoFamiliar1 = correoFamiliar1;
+    }
+
+    public String getNombreFamiliar2() {
+        return nombreFamiliar2;
+    }
+
+    public void setNombreFamiliar2(String nombreFamiliar2) {
+        this.nombreFamiliar2 = nombreFamiliar2;
+    }
+
+    public String getTelefonoFamiliar2() {
+        return telefonoFamiliar2;
+    }
+
+    public void setTelefonoFamiliar2(String telefonoFamiliar2) {
+        this.telefonoFamiliar2 = telefonoFamiliar2;
+    }
+
+    public String getCorreoFamiliar2() {
+        return correoFamiliar2;
+    }
+
+    public void setCorreoFamiliar2(String correoFamiliar2) {
+        this.correoFamiliar2 = correoFamiliar2;
+    }
+
+    public int getNumeroHermanos() {
+        return numeroHermanos;
+    }
+
+    public void setNumeroHermanos(int numeroHermanos) {
+        this.numeroHermanos = numeroHermanos;
+    }
+
+    public String getSituacionFamiliar() {
+        return situacionFamiliar;
+    }
+
+    public void setSituacionFamiliar(String situacionFamiliar) {
+        this.situacionFamiliar = situacionFamiliar;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public String getEnfermedadesAlergias() {
+        return enfermedadesAlergias;
+    }
+
+    public void setEnfermedadesAlergias(String enfermedadesAlergias) {
+        this.enfermedadesAlergias = enfermedadesAlergias;
+    }
+
+    // Métodos que devuelven propiedades (Property) para JavaFX
+    public StringProperty nombreProperty() {
+        return new SimpleStringProperty(nombre);
+    }
+    // Método que devuelve la propiedad (Property) para JavaFX del NIA
     public IntegerProperty NIAProperty() {
         return new SimpleIntegerProperty(NIA);
     }
 
 
-    public String getName() {
-        return name;
-    }
-
-    public StringProperty nameProperty() {
-        return new SimpleStringProperty(name);
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public StringProperty lastNameProperty() {
-        return new SimpleStringProperty(lastName);
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public StringProperty birthdayProperty() {
-        return new SimpleStringProperty(birthday);
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public StringProperty imagePathProperty() {
-        return new SimpleStringProperty(imagePath);
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public int getID() {
-        return ID;
+    public StringProperty apellidoProperty() {
+        return new SimpleStringProperty(apellido);
     }
 }

@@ -7,6 +7,7 @@ module com.profapp {
     requires java.naming;
     requires org.hibernate.orm.core;
     requires jakarta.persistence;
+    requires javafx.swing;
 
     opens com.profapp to javafx.fxml;
     opens com.profapp.model to org.hibernate.orm.core;

@@ -14,10 +14,7 @@ import java.util.List;
 public class AlumnoDAO {
     private static final Logger logger = LoggerFactory.getLogger(AlumnoDAO.class);
 
-    /**
-     * Create a new Alumno record in the database.
-     * @param alumno The Alumno object to be saved.
-     */
+
     public static void createAlumno(Alumno alumno) {
         Session session = null;
         Transaction transaction = null;
@@ -51,10 +48,6 @@ public class AlumnoDAO {
         }
     }
 
-    /**
-     * Read all Alumno records from the database.
-     * @return An ObservableList of Alumno objects.
-     */
     public static ObservableList<Alumno> getAllAlumnos() {
         List<Alumno> alumnosList;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -63,10 +56,6 @@ public class AlumnoDAO {
         return FXCollections.observableArrayList(alumnosList);
     }
 
-    /**
-     * Update an existing Alumno record in the database.
-     * @param alumno The Alumno object with updated data.
-     */
     public static void editAlumno(Alumno alumno) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -74,15 +63,13 @@ public class AlumnoDAO {
 
             Alumno alumnoDB = session.get(Alumno.class, alumno.getID());
 
-            alumnoDB.setNIA(alumno.getNIA());
-            alumnoDB.setName(alumno.getName());
-            alumnoDB.setLastName(alumno.getLastName());
+            updateParams(alumnoDB, alumno);
 
             session.merge(alumnoDB);
 
             transaction.commit();
             RetriveAll();
-            logger.debug("Alumno updated: {} | {}", alumno.getNIA(), alumnoDB.getNIA());
+            logger.debug("Alumno updated: {} | {}", alumno, alumnoDB);
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
@@ -91,10 +78,28 @@ public class AlumnoDAO {
         }
     }
 
-    /**
-     * Delete an Alumno record from the database.
-     * @param alumno The Alumno object to be deleted.
-     */
+    public static void updateParams(Alumno alumnoDB, Alumno alumno){
+        alumnoDB.setNIA(alumno.getNIA());
+        alumnoDB.setNombre(alumno.getNombre());
+        alumnoDB.setApellido(alumno.getApellido());
+        alumnoDB.setFechaNacimiento(alumno.getFechaNacimiento());
+        alumnoDB.setLocalidad(alumno.getLocalidad());
+        alumnoDB.setDomicilio(alumno.getDomicilio());
+        alumnoDB.setQuienArreplega(alumno.getQuienArreplega());
+        alumnoDB.setFoto(alumno.getFoto());
+        alumnoDB.setNombreFamiliar1(alumno.getNombreFamiliar1());
+        alumnoDB.setTelefonoFamiliar1(alumno.getTelefonoFamiliar1());
+        alumnoDB.setCorreoFamiliar1(alumno.getCorreoFamiliar1());
+        alumnoDB.setNombreFamiliar2(alumno.getNombreFamiliar2());
+        alumnoDB.setTelefonoFamiliar2(alumno.getTelefonoFamiliar2());
+        alumnoDB.setCorreoFamiliar2(alumno.getCorreoFamiliar2());
+        alumnoDB.setNumeroHermanos(alumno.getNumeroHermanos());
+        alumnoDB.setSituacionFamiliar(alumno.getSituacionFamiliar());
+        alumnoDB.setObservaciones(alumno.getObservaciones());
+        alumnoDB.setEnfermedadesAlergias(alumno.getEnfermedadesAlergias());
+    }
+
+
     public static void deleteAlumno(Alumno alumno) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
