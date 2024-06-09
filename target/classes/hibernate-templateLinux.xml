@@ -20,5 +20,6 @@
 
         <!-- List of annotated classes -->
         <mapping class="com.profapp.model.Alumno"/>
+        <mapping class="com.profapp.model.Tutoria"/>
     </session-factory>
 </hibernate-configuration>

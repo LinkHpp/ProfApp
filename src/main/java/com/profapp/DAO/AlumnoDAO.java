@@ -78,7 +78,7 @@ public class AlumnoDAO {
         }
     }
 
-    public static void updateParams(Alumno alumnoDB, Alumno alumno){
+    private static void updateParams(Alumno alumnoDB, Alumno alumno){
         alumnoDB.setNIA(alumno.getNIA());
         alumnoDB.setNombre(alumno.getNombre());
         alumnoDB.setApellido(alumno.getApellido());
@@ -115,12 +115,12 @@ public class AlumnoDAO {
         }
     }
 
-    public static void RetriveAll() {
+    public static List<Alumno> RetriveAll() {
 
         List<Alumno> alumnosList;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             alumnosList = session.createQuery("FROM Alumno", Alumno.class).getResultList();
-            alumnosList.forEach(System.out::println);
         }
+        return alumnosList;
     }
 }

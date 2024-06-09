@@ -4,9 +4,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<TableView fx:id="tableView" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.profapp.Controller">
+<TableView fx:id="tableView" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.profapp.Controller">
    <columns>
-      <TableColumn prefWidth="200" text="Nombre">
+      <TableColumn fx:id="nombreColumn" prefWidth="200" text="Nombre">
          <cellValueFactory>
             <PropertyValueFactory property="nombre" />
          </cellValueFactory>

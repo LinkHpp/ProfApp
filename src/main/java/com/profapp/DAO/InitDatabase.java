@@ -62,7 +62,11 @@ public class InitDatabase {
             initConfig(file_url);
         }
 
+        connectDB(url, file_url);
 
+    }
+
+    public static void connectDB(String url, String file_url){
         try {
             logger.info(url);
             Connection conn = DriverManager.getConnection(url);
@@ -77,6 +81,7 @@ public class InitDatabase {
             System.out.println(e.getMessage());
         }
     }
+
 
     public static String getOperatingSystem() {
         return System.getProperty("os.name");

@@ -1,32 +1,38 @@
-package com.profapp;
+package tableviewexample;
 
-import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 public class Asistencia {
-    private final BooleanProperty asistio;
-    private final String nombre;
+    private final SimpleStringProperty nombre;
+    private final SimpleBooleanProperty asistio;
 
     public Asistencia(String nombre, boolean asistio) {
-        this.nombre = nombre;
+        this.nombre = new SimpleStringProperty(nombre);
         this.asistio = new SimpleBooleanProperty(asistio);
+    }
+
+    public String getNombre() {
+        return nombre.get();
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre.set(nombre);
+    }
+
+    public SimpleStringProperty nombreProperty() {
+        return nombre;
     }
 
     public boolean isAsistio() {
         return asistio.get();
     }
 
-    public BooleanProperty asistioProperty() {
-        return asistio;
-    }
-
     public void setAsistio(boolean asistio) {
         this.asistio.set(asistio);
     }
 
-    public String getNombre() {
-        return nombre;
+    public SimpleBooleanProperty asistioProperty() {
+        return asistio;
     }
 }
-
-

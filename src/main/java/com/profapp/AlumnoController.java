@@ -95,15 +95,7 @@ public class AlumnoController {
 
     Alumno currentAlumno;
 
-    public ObservableList<Alumno> getData() {
-        return data;
-    }
-
-    public void setData(ObservableList<Alumno> data) {
-        this.data = data;
-    }
-
-    private static final Logger logger = LoggerFactory.getLogger(AlumnoDAO.class);
+    private static final Logger logger = LoggerFactory.getLogger(AlumnoController.class);
 
     @FXML
     private void initialize(){
@@ -244,7 +236,7 @@ public class AlumnoController {
 
         CreateEditController controller = loader.getController();
 
-        controller.LoadCurrent(currentAlumno, true);
+        controller.LoadCurrentAlumno(currentAlumno, true);
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

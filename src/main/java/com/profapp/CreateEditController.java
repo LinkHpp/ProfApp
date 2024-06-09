@@ -168,7 +168,7 @@ public class CreateEditController  implements Initializable {
 
     }
 
-    public void LoadCurrent(Alumno alumno, boolean is_update){
+    public void LoadCurrentAlumno(Alumno alumno, boolean is_update){
         alumnoCRUD = alumno;
         setAlumno(alumnoCRUD);
         update = is_update;
@@ -188,7 +188,11 @@ public class CreateEditController  implements Initializable {
             try {
                 Image image = new Image(new FileInputStream(selectedFile));
                 fotoImageView.setImage(image);
+                fotoImageViewTutor.setImage(image);
+                fotoImageViewObservacion.setImage(image);
                 Tools.setImageCircle(fotoImageView);
+                Tools.setImageCircle(fotoImageViewTutor);
+                Tools.setImageCircle(fotoImageViewObservacion);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -323,7 +327,7 @@ public class CreateEditController  implements Initializable {
     }
 
     private void setImage(boolean update){
-        if (alumnoCRUD.getFoto() != null) {
+        try {
             Image image = new Image(new ByteArrayInputStream(alumnoCRUD.getFoto()));
             if(update){
                 alumnoCRUD.setFoto(convertImageToByteArray(fotoImageView.getImage()));
@@ -335,7 +339,7 @@ public class CreateEditController  implements Initializable {
                 Tools.setImageCircle(fotoImageViewTutor);
                 Tools.setImageCircle(fotoImageViewObservacion);
             }
-        } else {
+        }catch (Exception e){
             URL imageUrl = getClass().getResource("/com/profapp/images/blank_user.png");
             if (imageUrl != null) {
                 Image image = new Image(imageUrl.toString());
@@ -347,6 +351,7 @@ public class CreateEditController  implements Initializable {
                 Tools.setImageCircle(fotoImageViewObservacion);
             }
         }
+
     }
 
     private byte[] convertImageToByteArray(Image image) {
@@ -365,6 +370,7 @@ public class CreateEditController  implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setImage(false);
         Tools.setImageCircle(fotoImageView);
     }
 }

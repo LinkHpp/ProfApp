@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.util.List;
+
 @Entity
 @Table(name = "alumnos")
 public class Alumno {
@@ -69,6 +71,9 @@ public class Alumno {
 
     @Column(name = "enfermedades_alergias")
     private String enfermedadesAlergias;
+
+    @OneToMany(mappedBy = "alumno")
+    private List<Tutoria> tutorias;
 
     // Default constructor required by Hibernate
     public Alumno() {
