@@ -18,7 +18,7 @@ public class MainApp extends Application {
 
         InitDatabase.createNewDatabase("profapp.db");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("mainAlumno.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("ProfApp");
         stage.setScene(scene);

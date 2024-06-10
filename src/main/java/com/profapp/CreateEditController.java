@@ -102,7 +102,7 @@ public class CreateEditController  implements Initializable {
     private void Add(ActionEvent event) throws IOException {
         try{
             if(update){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("mainAlumno.fxml"));
                 root = loader.load();
 
                 AlumnoController alumnoController = loader.getController();
@@ -118,7 +118,7 @@ public class CreateEditController  implements Initializable {
 
                 System.out.println(newAlumno);
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("mainAlumno.fxml"));
                 root = loader.load();
 
                 AlumnoController alumnoController = loader.getController();
@@ -155,7 +155,7 @@ public class CreateEditController  implements Initializable {
 
     public void onActionCancelButton(ActionEvent event){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainAlumno.fxml"));
             root = loader.load();
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

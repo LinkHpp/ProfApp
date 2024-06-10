@@ -10,6 +10,7 @@ module com.profapp {
     requires javafx.swing;
 
     opens com.profapp to javafx.fxml;
-    opens com.profapp.model to org.hibernate.orm.core;
     exports com.profapp;
+    exports com.profapp.model;
+    opens com.profapp.model to javafx.fxml, org.hibernate.orm.core;
 }

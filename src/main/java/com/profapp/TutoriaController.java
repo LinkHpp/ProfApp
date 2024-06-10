@@ -1,6 +1,5 @@
 package com.profapp;
 
-import com.profapp.DAO.AlumnoDAO;
 import com.profapp.DAO.TutoriaDAO;
 import com.profapp.model.Tutoria;
 import javafx.beans.value.ChangeListener;
@@ -52,8 +51,6 @@ public class TutoriaController {
         NameColumn.setCellValueFactory(cellData -> cellData.getValue().alumnoProperty());
 
         tutoriaTable.setItems(data);
-
-        //clearInfo();
 
 
         tutoriaTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Tutoria>()  {

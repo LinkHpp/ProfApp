@@ -269,9 +269,9 @@ public class AlumnoController {
     }
 
     @FXML
-    protected void onAsistenciaButtonClick(ActionEvent event) throws IOException {
+    protected void onAsignaturasButtonClick(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Asistencia.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Asignaturas.fxml"));
         Parent root = loader.load();
 
         Stage stage = new Stage(); // Create a new stage for the new scene

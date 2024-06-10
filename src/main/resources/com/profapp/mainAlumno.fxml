@@ -31,9 +31,9 @@
                   <MenuItem fx:id="itemTutoria" mnemonicParsing="false" onAction="#onTutoriaButtonClick" text="Go to Tutoria" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Asistencia">
+            <Menu mnemonicParsing="false" text="Asignaturas">
                <items>
-                  <MenuItem fx:id="itemAsistencia" mnemonicParsing="false" onAction="#onAsistenciaButtonClick" text="Go to Asistencia" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAsignaturasButtonClick" text="Go to Asignaturas" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

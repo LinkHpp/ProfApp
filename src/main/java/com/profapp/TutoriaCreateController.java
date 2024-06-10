@@ -23,7 +23,6 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -122,7 +121,7 @@ public class TutoriaCreateController implements Initializable {
         } catch (Exception e) {
             logger.error("Error: ", e);
             Tools.showErrorPopup("Error", "Problema al cambiar de vista: " + e.getMessage());
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("Create_Edit_Tutorias.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("CreateTutoria.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("ProfApp");
             stage.setScene(scene);

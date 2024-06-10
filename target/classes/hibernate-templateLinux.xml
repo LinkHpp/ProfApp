@@ -21,5 +21,8 @@
         <!-- List of annotated classes -->
         <mapping class="com.profapp.model.Alumno"/>
         <mapping class="com.profapp.model.Tutoria"/>
+        <mapping class="com.profapp.model.Asignatura"/>
+        <mapping class="com.profapp.model.Calificacion"/>
+
     </session-factory>
 </hibernate-configuration>
