@@ -22,6 +22,6 @@
         <mapping class="com.profapp.model.Alumno"/>
         <mapping class="com.profapp.model.Tutoria"/>
         <mapping class="com.profapp.model.Asignatura"/>
-        <mapping class="com.profapp.model.Calificacion"/>
+        <mapping class="com.profapp.model.Calificar"/>
     </session-factory>
 </hibernate-configuration>

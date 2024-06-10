@@ -17,11 +17,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="138.0" layoutY="448.0" prefHeight="36.0" prefWidth="201.0" spacing="5.0">
+      <HBox layoutX="104.0" layoutY="446.0" prefHeight="36.0" prefWidth="281.0" spacing="5.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onAddButtonClick" text="Nuevo" />
             <Button mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="36.0" prefWidth="60.0" text="Editar" />
             <Button mnemonicParsing="false" onAction="#onDeleteButtonClick" text="Borrar" />
+            <Button mnemonicParsing="false" onAction="#selectAsignatura" text="Calificar" />
          </children>
       </HBox>
    </children>

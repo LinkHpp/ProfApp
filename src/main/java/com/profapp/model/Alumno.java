@@ -75,6 +75,9 @@ public class Alumno {
     @OneToMany(mappedBy = "alumno")
     private List<Tutoria> tutorias;
 
+    @OneToMany(mappedBy = "alumno")
+    private List<Calificar> calificaciones;
+
     // Default constructor required by Hibernate
     public Alumno() {
     }
@@ -261,8 +264,23 @@ public class Alumno {
         return new SimpleIntegerProperty(NIA);
     }
 
-
     public StringProperty apellidoProperty() {
         return new SimpleStringProperty(apellido);
+    }
+
+    public List<Tutoria> getTutorias() {
+        return tutorias;
+    }
+
+    public void setTutorias(List<Tutoria> tutorias) {
+        this.tutorias = tutorias;
+    }
+
+    public List<Calificar> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<Calificar> calificaciones) {
+        this.calificaciones = calificaciones;
     }
 }

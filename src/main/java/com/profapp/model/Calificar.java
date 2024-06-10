@@ -4,7 +4,7 @@ import com.profapp.util.EstadoCalificacion;
 import jakarta.persistence.*;
 
 @Entity
-public class Calificacion {
+public class Calificar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,10 +18,10 @@ public class Calificacion {
     @Enumerated(EnumType.STRING)
     private EstadoCalificacion estado;
     // Constructor vacío
-    public Calificacion() {}
+    public Calificar() {}
 
     // Constructor con alumno, asignatura y nota
-    public Calificacion(Alumno alumno, Asignatura asignatura, EstadoCalificacion estado) {
+    public Calificar(Alumno alumno, Asignatura asignatura, EstadoCalificacion estado) {
         this.alumno = alumno;
         this.asignatura = asignatura;
         this.estado = estado;

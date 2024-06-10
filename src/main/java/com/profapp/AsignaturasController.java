@@ -1,9 +1,7 @@
 package com.profapp;
 
 import com.profapp.DAO.AsignaturaDAO;
-import com.profapp.DAO.TutoriaDAO;
 import com.profapp.model.Asignatura;
-import com.profapp.model.Tutoria;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -65,6 +63,21 @@ public class AsignaturasController {
         CreateAsignaturaController controller = loader.getController();
 
         controller.LoadCurrentAsignatura(currentAsignatura, true);
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    protected void selectAsignatura(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Calificar.fxml"));
+        Parent root = loader.load();
+
+        CalificarPage controller = loader.getController();
+
+        controller.loadAsignatura(currentAsignatura);
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
