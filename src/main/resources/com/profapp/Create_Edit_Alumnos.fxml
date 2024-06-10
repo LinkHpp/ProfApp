@@ -17,13 +17,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.profapp.CreateEditController">
    <children>
-      <TabPane layoutX="39.0" layoutY="33.0" prefHeight="514.0" prefWidth="785.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="32.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="33.0">
+      <TabPane layoutX="39.0" layoutY="33.0" prefHeight="514.0" prefWidth="785.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="33.0">
          <tabs>
             <Tab text="Info Alumno">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <GridPane layoutX="78.0" layoutY="42.0" prefHeight="323.0" prefWidth="426.0" AnchorPane.rightAnchor="281.0">
+                        <GridPane layoutX="78.0" layoutY="42.0" prefHeight="323.0" prefWidth="426.0" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="42.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -54,14 +54,14 @@
                               <TextField fx:id="NIATextField" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <HBox layoutX="558.0" layoutY="411.0" spacing="5.0">
+                        <HBox layoutX="558.0" layoutY="411.0" spacing="5.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="558.0" AnchorPane.rightAnchor="71.0" AnchorPane.topAnchor="411.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#onActionCancelButton" text="Cancelar" />
                               <Button mnemonicParsing="false" onAction="#Add" text="Guardar" />
                            </children>
                         </HBox>
                         <ImageView fx:id="fotoImageView" fitHeight="150.0" fitWidth="145.0" layoutX="563.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="selectImage" layoutX="587.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleSelectImage" text="Añadir Foto" />
+                        <Button fx:id="selectImage" layoutX="587.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleSelectImage" text="Añadir Foto" AnchorPane.leftAnchor="587.0" AnchorPane.rightAnchor="101.0" AnchorPane.topAnchor="219.0" />
                      </children>
                   </AnchorPane>
                </content>

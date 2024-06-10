@@ -6,15 +6,34 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.profapp.TutoriaCreateController">
    <children>
-      <DatePicker fx:id="datePicker" layoutX="371.0" layoutY="64.0" />
-      <Label layoutX="275.0" layoutY="72.0" text="Fecha Tutoria" />
-      <Label layoutX="132.0" layoutY="165.0" text="Notas:" />
-      <TextArea fx:id="textArea" layoutX="132.0" layoutY="211.0" prefHeight="200.0" prefWidth="599.0" wrapText="true" />
-      <Button layoutX="705.0" layoutY="481.0" mnemonicParsing="false" onAction="#Add" text="Add" />
-      <Label layoutX="275.0" layoutY="124.0" text="Alumno:" />
-      <ChoiceBox fx:id="alumnoChoiceBox" layoutX="371.0" layoutY="122.0" prefHeight="36.0" prefWidth="217.0" />
+      <HBox alignment="CENTER" layoutX="259.0" layoutY="64.0" spacing="10.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="292.0">
+         <children>
+            <Label text="Fecha Tutoria" />
+            <DatePicker fx:id="datePicker" />
+         </children>
+      </HBox>
+      <VBox layoutX="132.0" layoutY="165.0" spacing="30.0" AnchorPane.bottomAnchor="138.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="165.0">
+         <children>
+            <Label text="Notas:" />
+            <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="599.0" wrapText="true" />
+         </children>
+      </VBox>
+      <HBox layoutX="655.0" layoutY="481.0" spacing="5.0" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="87.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onActionCancelButton" text="Cancel" />
+            <Button mnemonicParsing="false" onAction="#Add" text="Add" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="259.0" layoutY="117.0" spacing="10.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="292.0">
+         <children>
+            <Label text="Alumno:" />
+            <ChoiceBox fx:id="alumnoChoiceBox" prefHeight="36.0" prefWidth="217.0" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

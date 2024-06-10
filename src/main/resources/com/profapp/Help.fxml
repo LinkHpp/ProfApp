@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.profapp.Help"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="310.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.profapp.Help">
+   <children>
+      <VBox alignment="CENTER" layoutX="106.0" layoutY="63.0" spacing="30.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="63.0">
+         <children>
+            <Label text="Si necesita ayuda mande un correo a esta cuenta">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="linkynavihp@gmail.com">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Aplicacion desarrollada por:" underline="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Hermes Pérez Parrondo">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

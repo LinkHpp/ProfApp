@@ -279,4 +279,15 @@ public class AlumnoController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    protected void onHelpButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Help.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage(); // Create a new stage for the new scene
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

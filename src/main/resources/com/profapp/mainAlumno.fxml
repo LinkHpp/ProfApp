@@ -21,24 +21,19 @@
    <children>
       <MenuBar prefHeight="40.0" prefWidth="862.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <menus>
-            <Menu mnemonicParsing="false" text="Alumno">
-               <items>
-                  <MenuItem fx:id="itemCrearAlumno" mnemonicParsing="false" onAction="#onAddButtonClick" text="Clear Alumnos" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" text="Tutoria">
                <items>
-                  <MenuItem fx:id="itemTutoria" mnemonicParsing="false" onAction="#onTutoriaButtonClick" text="Go to Tutoria" />
+                  <MenuItem fx:id="itemTutoria" mnemonicParsing="false" onAction="#onTutoriaButtonClick" text="Ir a Tutorias" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Asignaturas">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onAsignaturasButtonClick" text="Go to Asignaturas" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAsignaturasButtonClick" text="Ir a Asignaturas" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu mnemonicParsing="false" text="Ayuda">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#onHelpButtonClick" text="About" />
                </items>
             </Menu>
          </menus>

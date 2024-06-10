@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="526.0" prefWidth="476.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.profapp.AsignaturasController">
    <children>
-      <TableView fx:id="asignaturaTable" layoutX="7.0" layoutY="20.0" prefHeight="386.0" prefWidth="462.0">
+      <TableView fx:id="asignaturaTable" layoutX="7.0" layoutY="20.0" prefHeight="386.0" prefWidth="462.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="20.0">
          <columns>
             <TableColumn fx:id="idColumn" prefWidth="81.0" text="ID" />
             <TableColumn fx:id="nameColumn" prefWidth="192.0" text="Asignatura" />
@@ -17,7 +17,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="104.0" layoutY="446.0" prefHeight="36.0" prefWidth="281.0" spacing="5.0">
+      <HBox layoutX="104.0" layoutY="446.0" prefHeight="36.0" prefWidth="281.0" spacing="5.0" AnchorPane.bottomAnchor="44.0" AnchorPane.rightAnchor="91.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onAddButtonClick" text="Nuevo" />
             <Button mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="36.0" prefWidth="60.0" text="Editar" />
